@@ -18,7 +18,7 @@ namespace SnakeGame
             _x = x;
             _y = y;
 
-            _snake = new Snake(2, 3);
+            _snake = new Snake(2, 3, 10);
 
             _fruits = new List<Fruit>();
 
@@ -29,6 +29,11 @@ namespace SnakeGame
         public int GetScore()
         {
             return _snake.GetLength();
+        }
+
+        public int GetLife()
+        {
+            return _snake.Life;
         }
 
         public void Update(Direction direction)
@@ -108,76 +113,5 @@ namespace SnakeGame
 
             return game;
         }
-    }
-
-    public class Fruit
-    {
-        public const char Symbol = 'f';
-
-        public int X { get; }
-
-        public int Y { get; }
-
-        public Fruit(int x, int y)
-        {
-            X = x;
-            Y = y;
-        }
-
-        public Fruit((int X, int Y) newFruit) : this(newFruit.X, newFruit.Y) { }
-    }
-
-    public class Snake
-    {
-        private List<(int X, int Y)> _snake;
-
-        public const char SnakeHead = 'H';
-
-        public const char SnakeBody = 'B';
-
-        private int _snakeLenght = 1;
-
-        public Snake(int x, int y)
-        {
-            _snake = new List<(int X, int Y)>();
-
-            _snake.Add((x, y));
-        }
-
-        public int GetLength() => _snake.Count();
-
-        public (int X,int Y, char Symbol)[] GetSnake()
-        {
-            return _snake.Select((s,i) =>
-            {
-                return i == 0 ? (s.X, s.Y, SnakeHead) : (s.X, s.Y, SnakeBody);
-            }).ToArray();
-        }
-
-        public void MoveSnake((int X, int Y, char Symbol) newBox)
-        {
-            if (newBox.Symbol == Fruit.Symbol) _snakeLenght += 1;
-
-            for(int i = 0; i < _snake.Count -1 ; i++)
-            {
-                if (_snake[i].X == newBox.X && _snake[i].Y == newBox.Y) throw new Exception();
-            }
-
-            _snake.Insert(0, (newBox.X, newBox.Y));
-            
-
-            if(_snake.Count > _snakeLenght)
-            {
-                _snake.RemoveAt(_snake.Count() - 1);
-            }
-        }
-    }
-
-    public enum Direction
-    {
-        Up = 0,
-        Down = 1,
-        Left = 2,
-        Right = 3
     }
 }

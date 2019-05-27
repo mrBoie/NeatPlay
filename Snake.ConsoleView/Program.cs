@@ -10,7 +10,7 @@ namespace Snake.ConsoleView
             var gameBoard = new SnakeGameBoard(10, 10);
 
             var game = gameBoard.GetGameBoard();
-            DrawBoard(game, gameBoard.GetScore()); ;
+            //DrawBoard(game, gameBoard.GetScore(), gameBoard.GetLife()); ;
 
             try
             {
@@ -18,11 +18,11 @@ namespace Snake.ConsoleView
                 do
                 {
 
+                    DrawBoard(gameBoard.GetGameBoard(), gameBoard.GetScore(), gameBoard.GetLife());
                     input = Console.ReadKey().KeyChar;
                     if (input == 'q') break;
                     var direction = GetDirection(input);
                     gameBoard.Update(direction);
-                    DrawBoard(gameBoard.GetGameBoard(), gameBoard.GetScore());
 
                 } while (input != 'q');
             }
@@ -35,7 +35,7 @@ namespace Snake.ConsoleView
             Console.ReadLine();
         }
 
-        public static void DrawBoard(char [,] board, int score)
+        public static void DrawBoard(char [,] board, int score, int life)
         {
             Console.Clear();
             var output = "";
@@ -54,6 +54,7 @@ namespace Snake.ConsoleView
             Console.WriteLine();
 
             Console.WriteLine($"The score is: {score}");
+            Console.WriteLine($"The life is: {life}");
         }
 
         public static Direction GetDirection(char input)
