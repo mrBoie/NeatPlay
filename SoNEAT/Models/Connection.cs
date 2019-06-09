@@ -1,4 +1,6 @@
-﻿namespace SoNEAT
+﻿using SoNEAT.InnovationPointGenerator;
+
+namespace SoNEAT.Models
 {
     public class Connection
     {

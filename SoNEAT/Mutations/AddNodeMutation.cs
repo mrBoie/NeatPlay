@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using SoNEAT.InnovationPointGenerator;
+using SoNEAT.Models;
+using System;
 using System.Linq;
-using System.Text;
 
 namespace SoNEAT.Mutations
 {

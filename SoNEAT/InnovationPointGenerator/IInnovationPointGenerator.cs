@@ -1,4 +1,4 @@
-﻿namespace SoNEAT
+﻿namespace SoNEAT.InnovationPointGenerator
 {
     public interface IInnovationPointGenerator
     {

@@ -1,4 +1,4 @@
-﻿namespace SoNEAT
+﻿namespace SoNEAT.Models
 {
     public enum NodeType
     {

@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using SoNEAT;
+using SoNEAT.Models;
 using System;
 using System.Collections.Generic;
 

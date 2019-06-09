@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SoNEAT.CrossFunctions
+﻿namespace SoNEAT.CrossFunctions
 {
     public interface ICrossFunctionStrategy
     {

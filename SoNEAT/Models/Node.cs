@@ -1,4 +1,6 @@
-﻿namespace SoNEAT
+﻿using SoNEAT.Models;
+
+namespace SoNEAT
 {
     public class Node
     {
