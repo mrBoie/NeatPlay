@@ -16,7 +16,7 @@ namespace Tests
         public void Setup()
         {
             var random = new Random(23);
-            genome1 = new Genome(null, null, random)
+            genome1 = new Genome()
             {
                 Nodes = new Dictionary<int, Node>
                 {
@@ -38,7 +38,7 @@ namespace Tests
                 }
             };
 
-            genome2 = new Genome(null, null, random)
+            genome2 = new Genome()
             {
                 Nodes = new Dictionary<int, Node>()
                 {
@@ -59,7 +59,7 @@ namespace Tests
                 }
             };
 
-            var genome3 = new Genome(null, null, random)
+            var genome3 = new Genome()
             {
                 Nodes = new Dictionary<int, Node>()
                 {
