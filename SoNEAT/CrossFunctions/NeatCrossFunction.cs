@@ -49,7 +49,7 @@ namespace SoNEAT.CrossFunctions
                 {
                     childConnection = moreConnection.Value.Copy();
                 }
-                childConnections.Add(childConnection.InnovationPoint, childConnection);
+                childConnections.Add(childConnection.Id, childConnection);
             }
 
             return childConnections;

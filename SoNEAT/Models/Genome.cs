@@ -18,7 +18,7 @@ namespace SoNEAT
         {
             var genome = new Genome()
             {
-                Connections = Connections.Values.Select(o => o.Copy()).ToDictionary(k => k.InnovationPoint, c => c),
+                Connections = Connections.Values.Select(o => o.Copy()).ToDictionary(k => k.Id, c => c),
                 Nodes = Nodes.Values.Select(n => n.Copy()).ToDictionary(k => k.Id, n => n)
             };
             return genome;
@@ -58,7 +58,7 @@ namespace SoNEAT
                                 outvar += "-.->";
                                 break;
                         }
-                        outvar += $"|I:{c.Value.InnovationPoint}, W:{c.Value.Weight.ToString(CultureInfo.InvariantCulture)}|{c.Value.OutNodeId}";
+                        outvar += $"|I:{c.Value.Id}, W:{c.Value.Weight.ToString(CultureInfo.InvariantCulture)}|{c.Value.OutNodeId}";
                         return outvar;
                     }));
 

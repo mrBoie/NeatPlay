@@ -29,13 +29,13 @@ namespace Tests
                 },
                 Connections = new Dictionary<int, Connection>
                 {
-                    {1, new Connection { InNodeId = 1, OutNodeId = 4, InnovationPoint = 1, IsEnabled = true, Weight = 0.7 }},
-                    {2, new Connection { InNodeId = 2, OutNodeId = 4, InnovationPoint = 2, IsEnabled = false, Weight = -0.5 }},
-                    {3, new Connection { InNodeId = 3, OutNodeId = 4, InnovationPoint = 3, IsEnabled = true, Weight = 0.5 }},
-                    {4, new Connection { InNodeId = 2, OutNodeId = 5, InnovationPoint = 4, IsEnabled = true, Weight = 0.2 }},
-                    {5, new Connection { InNodeId = 5, OutNodeId = 4, InnovationPoint = 5, IsEnabled = true, Weight = 0.4 }},
-                    {6, new Connection { InNodeId = 1, OutNodeId = 5, InnovationPoint = 6, IsEnabled = true, Weight = 0.6 }},
-                    {11, new Connection { InNodeId = 4, OutNodeId = 5, InnovationPoint = 11, IsEnabled = true, Weight = 0.6 }}
+                    {1, new Connection { InNodeId = 1, OutNodeId = 4, Id = 1, IsEnabled = true, Weight = 0.7 }},
+                    {2, new Connection { InNodeId = 2, OutNodeId = 4, Id = 2, IsEnabled = false, Weight = -0.5 }},
+                    {3, new Connection { InNodeId = 3, OutNodeId = 4, Id = 3, IsEnabled = true, Weight = 0.5 }},
+                    {4, new Connection { InNodeId = 2, OutNodeId = 5, Id = 4, IsEnabled = true, Weight = 0.2 }},
+                    {5, new Connection { InNodeId = 5, OutNodeId = 4, Id = 5, IsEnabled = true, Weight = 0.4 }},
+                    {6, new Connection { InNodeId = 1, OutNodeId = 5, Id = 6, IsEnabled = true, Weight = 0.6 }},
+                    {11, new Connection { InNodeId = 4, OutNodeId = 5, Id = 11, IsEnabled = true, Weight = 0.6 }}
                 }
             };
 
@@ -51,12 +51,12 @@ namespace Tests
                 },
                 Connections = new Dictionary<int, Connection>
                 {
-                    {1, new Connection { InNodeId = 1, OutNodeId = 4, InnovationPoint = 1, IsEnabled = true, Weight = 1}},
-                    {1, new Connection { InNodeId = 2, OutNodeId = 4, InnovationPoint = 2, IsEnabled = false, Weight = 1}},
-                    {1, new Connection { InNodeId = 3, OutNodeId = 4, InnovationPoint = 3, IsEnabled = true, Weight = 1}},
-                    {1, new Connection { InNodeId = 2, OutNodeId = 5, InnovationPoint = 4, IsEnabled = true, Weight = 1}},
-                    {1, new Connection { InNodeId = 5, OutNodeId = 4, InnovationPoint = 5, IsEnabled = true, Weight = 1}},
-                    {1, new Connection { InNodeId = 1, OutNodeId = 5, InnovationPoint = 8, IsEnabled = true, Weight = 1}},
+                    {1, new Connection { InNodeId = 1, OutNodeId = 4, Id = 1, IsEnabled = true, Weight = 1}},
+                    {1, new Connection { InNodeId = 2, OutNodeId = 4, Id = 2, IsEnabled = false, Weight = 1}},
+                    {1, new Connection { InNodeId = 3, OutNodeId = 4, Id = 3, IsEnabled = true, Weight = 1}},
+                    {1, new Connection { InNodeId = 2, OutNodeId = 5, Id = 4, IsEnabled = true, Weight = 1}},
+                    {1, new Connection { InNodeId = 5, OutNodeId = 4, Id = 5, IsEnabled = true, Weight = 1}},
+                    {1, new Connection { InNodeId = 1, OutNodeId = 5, Id = 8, IsEnabled = true, Weight = 1}},
                 }
             };
 
@@ -73,15 +73,15 @@ namespace Tests
                 },
                 Connections = new Dictionary<int, Connection>
                 {
-                    {1, new Connection { InNodeId = 1, OutNodeId = 4, InnovationPoint = 1, IsEnabled = true, Weight = 1} },
-                    {2, new Connection { InNodeId = 2, OutNodeId = 4, InnovationPoint = 2, IsEnabled = false, Weight = 1}},
-                    {3, new Connection { InNodeId = 3, OutNodeId = 4, InnovationPoint = 3, IsEnabled = true, Weight = 1}},
-                    {4, new Connection { InNodeId = 2, OutNodeId = 5, InnovationPoint = 4, IsEnabled = true, Weight = 1}},
-                    {5, new Connection { InNodeId = 5, OutNodeId = 4, InnovationPoint = 5, IsEnabled = false, Weight = 1}},
-                    {6, new Connection { InNodeId = 5, OutNodeId = 6, InnovationPoint = 6, IsEnabled = true, Weight = 1}},
-                    {7, new Connection { InNodeId = 6, OutNodeId = 4, InnovationPoint = 7, IsEnabled = true, Weight = 1}},
-                    {9, new Connection { InNodeId = 5, OutNodeId = 4, InnovationPoint = 9, IsEnabled = true, Weight = 1}},
-                    {10, new Connection { InNodeId = 1, OutNodeId = 6, InnovationPoint = 10, IsEnabled = true, Weight = 1}},
+                    {1, new Connection { InNodeId = 1, OutNodeId = 4, Id = 1, IsEnabled = true, Weight = 1} },
+                    {2, new Connection { InNodeId = 2, OutNodeId = 4, Id = 2, IsEnabled = false, Weight = 1}},
+                    {3, new Connection { InNodeId = 3, OutNodeId = 4, Id = 3, IsEnabled = true, Weight = 1}},
+                    {4, new Connection { InNodeId = 2, OutNodeId = 5, Id = 4, IsEnabled = true, Weight = 1}},
+                    {5, new Connection { InNodeId = 5, OutNodeId = 4, Id = 5, IsEnabled = false, Weight = 1}},
+                    {6, new Connection { InNodeId = 5, OutNodeId = 6, Id = 6, IsEnabled = true, Weight = 1}},
+                    {7, new Connection { InNodeId = 6, OutNodeId = 4, Id = 7, IsEnabled = true, Weight = 1}},
+                    {9, new Connection { InNodeId = 5, OutNodeId = 4, Id = 9, IsEnabled = true, Weight = 1}},
+                    {10, new Connection { InNodeId = 1, OutNodeId = 6, Id = 10, IsEnabled = true, Weight = 1}},
                 }
             };
 

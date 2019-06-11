@@ -53,7 +53,7 @@ namespace SoNEAT.Mutations
                 }
 
                 var newConnection = CreateConnection(node1.Id, node2.Id);
-                genome.Connections.Add(newConnection.InnovationPoint, newConnection);
+                genome.Connections.Add(newConnection.Id, newConnection);
 
                 success = true;
             }
@@ -129,7 +129,7 @@ namespace SoNEAT.Mutations
                 OutNodeId = outNode,
                 IsEnabled = false,
                 Weight = (_random.NextDouble() * 2.0) - 1.0, //RANDOM WEIGHT
-                InnovationPoint = _connectionInnovationGenerator.GetNextInnovation()
+                Id = _connectionInnovationGenerator.GetNextInnovation()
             };
         }
 

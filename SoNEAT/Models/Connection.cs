@@ -2,18 +2,18 @@
 
 namespace SoNEAT.Models
 {
-    public class Connection
+    public class Connection : IGene
     {
         public int InNodeId { get; set; }
         public int OutNodeId { get; set; }
         public double Weight { get; set; }
         public bool IsEnabled { get; set; }
-        public int InnovationPoint { get; set; }
+        public int Id { get; set; }
 
         public Connection Copy(IInnovationPointGenerator innovationGenerator)
         {
             var copy = Copy();
-            copy.InnovationPoint = innovationGenerator.GetNextInnovation();
+            copy.Id = innovationGenerator.GetNextInnovation();
             return copy;
         }
 
@@ -23,7 +23,7 @@ namespace SoNEAT.Models
             {
                 InNodeId = InNodeId,
                 OutNodeId = OutNodeId,
-                InnovationPoint = InnovationPoint,
+                Id = Id,
                 IsEnabled = IsEnabled,
                 Weight = Weight
             };

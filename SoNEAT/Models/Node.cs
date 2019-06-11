@@ -2,7 +2,7 @@
 
 namespace SoNEAT
 {
-    public class Node
+    public class Node : IGene
     {
         public int Id { get; set; }
         public NodeType NodeType { get; set; }

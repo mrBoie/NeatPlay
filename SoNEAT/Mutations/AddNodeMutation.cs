@@ -26,8 +26,8 @@ namespace SoNEAT.Mutations
             var (node, inConnection, outConnection) = GenerateNewNodeAndConnections(connection);
 
             genome.Nodes.Add(node.Id, node);
-            genome.Connections.Add(inConnection.InnovationPoint, inConnection);
-            genome.Connections.Add(outConnection.InnovationPoint, outConnection);
+            genome.Connections.Add(inConnection.Id, inConnection);
+            genome.Connections.Add(outConnection.Id, outConnection);
 
             connection.IsEnabled = false;
         }
