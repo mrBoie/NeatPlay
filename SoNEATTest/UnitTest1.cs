@@ -52,11 +52,11 @@ namespace Tests
                 Connections = new Dictionary<int, Connection>
                 {
                     {1, new Connection { InNodeId = 1, OutNodeId = 4, Id = 1, IsEnabled = true, Weight = 1}},
-                    {1, new Connection { InNodeId = 2, OutNodeId = 4, Id = 2, IsEnabled = false, Weight = 1}},
-                    {1, new Connection { InNodeId = 3, OutNodeId = 4, Id = 3, IsEnabled = true, Weight = 1}},
-                    {1, new Connection { InNodeId = 2, OutNodeId = 5, Id = 4, IsEnabled = true, Weight = 1}},
-                    {1, new Connection { InNodeId = 5, OutNodeId = 4, Id = 5, IsEnabled = true, Weight = 1}},
-                    {1, new Connection { InNodeId = 1, OutNodeId = 5, Id = 8, IsEnabled = true, Weight = 1}},
+                    {2, new Connection { InNodeId = 2, OutNodeId = 4, Id = 2, IsEnabled = false, Weight = 1}},
+                    {3, new Connection { InNodeId = 3, OutNodeId = 4, Id = 3, IsEnabled = true, Weight = 1}},
+                    {4, new Connection { InNodeId = 2, OutNodeId = 5, Id = 4, IsEnabled = true, Weight = 1}},
+                    {5, new Connection { InNodeId = 5, OutNodeId = 4, Id = 5, IsEnabled = true, Weight = 1}},
+                    {8, new Connection { InNodeId = 1, OutNodeId = 5, Id = 8, IsEnabled = true, Weight = 1}},
                 }
             };
 

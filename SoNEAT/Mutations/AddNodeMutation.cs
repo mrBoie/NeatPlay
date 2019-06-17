@@ -22,14 +22,17 @@ namespace SoNEAT.Mutations
         {
             var enabledConnections = genome.Connections.Values.Where(o => o.IsEnabled);
 
-            var connection = enabledConnections.ElementAt(random.Next(enabledConnections.Count()));
-            var (node, inConnection, outConnection) = GenerateNewNodeAndConnections(connection);
+            if (enabledConnections.Any())
+            {
+                var connection = enabledConnections.ElementAt(random.Next(enabledConnections.Count()));
+                var (node, inConnection, outConnection) = GenerateNewNodeAndConnections(connection);
 
-            genome.Nodes.Add(node.Id, node);
-            genome.Connections.Add(inConnection.Id, inConnection);
-            genome.Connections.Add(outConnection.Id, outConnection);
+                genome.Nodes.Add(node.Id, node);
+                genome.Connections.Add(inConnection.Id, inConnection);
+                genome.Connections.Add(outConnection.Id, outConnection);
 
-            connection.IsEnabled = false;
+                connection.IsEnabled = false;
+            }
         }
 
         private (Node newNode, Connection inConnection, Connection outConnection) GenerateNewNodeAndConnections(Connection connection)

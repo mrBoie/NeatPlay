@@ -12,14 +12,21 @@ namespace SoNEAT.Mutations
         private readonly Random _random;
         private readonly double _probabilityPerturbing;
         private readonly int _maxAttempts;
+        private InovationGenerator _connectionInovator;
+        private Random _random1;
+        private INeatConfiguration _configuration;
 
         public AddConnectionMutation(IInnovationPointGenerator connectionInnovationGenerator, Random random, double probabilityPerturbing, int maxAttempts)
         {
-            this._connectionInnovationGenerator = connectionInnovationGenerator;
-            this._random = random;
+            _connectionInnovationGenerator = connectionInnovationGenerator;
+            _random = random;
             _probabilityPerturbing = probabilityPerturbing;
             _maxAttempts = maxAttempts;
         }
+
+        public AddConnectionMutation(InovationGenerator connectionInovator, Random random, INeatConfiguration configuration) :
+            this(connectionInovator, random, configuration.PerturbingRate, configuration.MaxAttemptsAtFindingConnections)
+        { }
 
         public void Mutate(Genome genome)
         {

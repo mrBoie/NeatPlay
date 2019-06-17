@@ -30,6 +30,8 @@ namespace SoNEAT
 
         public int PopulationSize { get; }
 
+        public int MaxAttemptsAtFindingConnections => 10;
+
         public DefaultNeatConfiguration(int popSize)
         {
             PopulationSize = popSize;

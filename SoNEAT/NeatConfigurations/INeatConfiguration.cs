@@ -62,6 +62,8 @@ namespace SoNEAT
         /// </summary>
         double OffspringFromCrossover { get; }
 
+        int MaxAttemptsAtFindingConnections { get; }
+
         int PopulationSize { get; }
     }
 }

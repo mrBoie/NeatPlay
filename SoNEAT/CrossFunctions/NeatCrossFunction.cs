@@ -10,10 +10,10 @@ namespace SoNEAT.CrossFunctions
         private readonly Random _random;
         private readonly double _disabledGeneInheritingChance;
 
-        public NeatCrossFunction(Random random, double disabledGeneInheritingChance)
+        public NeatCrossFunction(Random random, INeatConfiguration configuration)
         {
             _random = random;
-            _disabledGeneInheritingChance = disabledGeneInheritingChance;
+            _disabledGeneInheritingChance = configuration.DisabledGeneInheritingChance;
         }
 
         public Genome GenerateOffspring(Genome moreFitParent, Genome lessFitParent)
