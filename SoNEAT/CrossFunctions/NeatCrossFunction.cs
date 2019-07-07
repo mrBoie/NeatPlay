@@ -20,7 +20,7 @@ namespace SoNEAT.CrossFunctions
         {
             var newGenome = new Genome();
 
-            newGenome.Nodes = GenerateBabyNodes(moreFitParent, lessFitParent);
+            newGenome.Nodes = GenerateBabyNodes(moreFitParent);
 
             newGenome.Connections = GenerateBabyConnections(moreFitParent, lessFitParent, _random, _disabledGeneInheritingChance);
 
@@ -55,18 +55,10 @@ namespace SoNEAT.CrossFunctions
             return childConnections;
         }
 
-        private static Dictionary<int, Node> GenerateBabyNodes(Genome moreFitParent, Genome lessFitParent)
+        private static Dictionary<int, Node> GenerateBabyNodes(Genome moreFitParent)
         {
             var babyNodes = moreFitParent.Nodes.Select(n => n.Value.Copy()).ToDictionary(k => k.Id, n => n);
 
-            foreach (var lessFitNode in lessFitParent.Nodes.Values)
-            {
-                if (!babyNodes.ContainsKey(lessFitNode.Id))
-                {
-                    var babyNode = lessFitNode.Copy();
-                    babyNodes.Add(babyNode.Id, babyNode);
-                }
-            }
 
             return babyNodes;
         }

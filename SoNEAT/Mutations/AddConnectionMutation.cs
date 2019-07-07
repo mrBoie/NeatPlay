@@ -12,9 +12,6 @@ namespace SoNEAT.Mutations
         private readonly Random _random;
         private readonly double _probabilityPerturbing;
         private readonly int _maxAttempts;
-        private InovationGenerator _connectionInovator;
-        private Random _random1;
-        private INeatConfiguration _configuration;
 
         public AddConnectionMutation(IInnovationPointGenerator connectionInnovationGenerator, Random random, double probabilityPerturbing, int maxAttempts)
         {
