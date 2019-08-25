@@ -21,8 +21,8 @@ namespace SoNEATTest
         {
             var random = new Random(23);
             INeatConfiguration configuration = new DefaultNeatConfiguration(500);
-            var nodeInovator = new InovationGenerator(1);
-            var connectionInovator = new InovationGenerator(1);
+            var nodeInovator = new InnovationGenerator(1);
+            var connectionInovator = new InnovationGenerator(1);
 
             var problemDomain = new ProblemDomain(
                 inputs:
@@ -63,7 +63,7 @@ namespace SoNEATTest
             Assert.That(evaluator.FittestGenome.Fitness > 90);
         }
 
-        private static Genome CreateOriginalGenome(InovationGenerator nodeInovator, InovationGenerator connectionInovator, ProblemDomain problemDomain)
+        private static Genome CreateOriginalGenome(InnovationGenerator nodeInovator, InnovationGenerator connectionInovator, ProblemDomain problemDomain)
         {
             var grandGenome = new Genome();
 

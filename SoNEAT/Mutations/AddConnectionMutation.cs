@@ -21,7 +21,7 @@ namespace SoNEAT.Mutations
             _maxAttempts = maxAttempts;
         }
 
-        public AddConnectionMutation(InovationGenerator connectionInovator, Random random, INeatConfiguration configuration) :
+        public AddConnectionMutation(InnovationGenerator connectionInovator, Random random, INeatConfiguration configuration) :
             this(connectionInovator, random, configuration.PerturbingRate, configuration.MaxAttemptsAtFindingConnections)
         { }
 

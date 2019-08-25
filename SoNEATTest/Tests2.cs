@@ -17,8 +17,8 @@ namespace SoNEATTest
         {
             var random = new Random(23);
             INeatConfiguration configuration = new DefaultNeatConfiguration(500);
-            var nodeInovator = new InovationGenerator(1);
-            var ConnectionInovator = new InovationGenerator(1);
+            var nodeInovator = new InnovationGenerator(1);
+            var ConnectionInovator = new InnovationGenerator(1);
 
             var genomeProvider = new GenomeProvider(nodeInovator, ConnectionInovator, random);
 

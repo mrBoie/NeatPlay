@@ -1,10 +1,12 @@
-﻿namespace SoNEAT.InnovationPointGenerator
+﻿using System.Collections;
+
+namespace SoNEAT.InnovationPointGenerator
 {
-    public class InovationGenerator : IInnovationPointGenerator
+    public class InnovationGenerator : IInnovationPointGenerator
     {
         private int counter;
 
-        public InovationGenerator(int initialValue)
+        public InnovationGenerator(int initialValue)
         {
             counter = initialValue;
         }
