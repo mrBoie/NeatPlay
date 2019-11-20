@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SoNEAT.Facades;
 using static SoNEATTest.Tests2;
 
 namespace SoNEATTest
@@ -19,7 +20,7 @@ namespace SoNEATTest
         [Test]
         public void test()
         {
-            var random = new Random(23);
+            var random = new RandomImplementation(23);
             INeatConfiguration configuration = new DefaultNeatConfiguration(500);
             var nodeInovator = new InnovationGenerator(1);
             var connectionInovator = new InnovationGenerator(1);
@@ -105,10 +106,10 @@ namespace SoNEATTest
     {
         private readonly IInnovationPointGenerator _nodeGenerator;
         private readonly IInnovationPointGenerator _connectionGenerator;
-        private readonly Random _random;
+        private readonly IRandom _random;
         private readonly Genome _grandFather;
 
-        public XORNNProvider(IInnovationPointGenerator nodeGenerator, IInnovationPointGenerator connectionGenerator, Random random, Genome grandFather)
+        public XORNNProvider(IInnovationPointGenerator nodeGenerator, IInnovationPointGenerator connectionGenerator, IRandom random, Genome grandFather)
         {
             _nodeGenerator = nodeGenerator;
             _connectionGenerator = connectionGenerator;
@@ -131,7 +132,7 @@ namespace SoNEATTest
     {
         private readonly ProblemDomain _problemDomain;
 
-        public XORNNEvaluator(INeatConfiguration neatConfiguration, IGenesisGenomeProvider genomeProvider, IInnovationPointGenerator nodeInnovationGenerator, IInnovationPointGenerator connectionInnovationGenerator, IMutation addConnectionMutation, IMutation addNodeMutation, IMutation weightMutation, ICrossFunctionStrategy crossFunctionStrategy, Random random, ProblemDomain problemDomain) : base(neatConfiguration, genomeProvider, nodeInnovationGenerator, connectionInnovationGenerator, addConnectionMutation, addNodeMutation, weightMutation, crossFunctionStrategy, random)
+        public XORNNEvaluator(INeatConfiguration neatConfiguration, IGenesisGenomeProvider genomeProvider, IInnovationPointGenerator nodeInnovationGenerator, IInnovationPointGenerator connectionInnovationGenerator, IMutation addConnectionMutation, IMutation addNodeMutation, IMutation weightMutation, ICrossFunctionStrategy crossFunctionStrategy, IRandom random, ProblemDomain problemDomain) : base(neatConfiguration, genomeProvider, nodeInnovationGenerator, connectionInnovationGenerator, addConnectionMutation, addNodeMutation, weightMutation, crossFunctionStrategy, random)
         {
             _problemDomain = problemDomain;
         }

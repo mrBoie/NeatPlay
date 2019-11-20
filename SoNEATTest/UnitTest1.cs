@@ -87,12 +87,12 @@ namespace Tests
 
         }
 
-        [Test]
-        public void Test1()
-        {
-            var mermaid = genome1.GenerateMermaid();
+        //[Test]
+        //public void Test1()
+        //{
+        //    var mermaid = genome1.GenerateMermaid();
 
-            var a = "a";
-        }
+        //    var a = "a";
+        //}
     }
 }

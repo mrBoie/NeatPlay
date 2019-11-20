@@ -7,6 +7,8 @@ using SoNEAT.Mutations;
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using SoNEAT.Facades;
+
 namespace SoNEATTest
 {
     [TestFixture]
@@ -15,7 +17,7 @@ namespace SoNEATTest
         [Test]
         public void MyTestMethod()
         {
-            var random = new Random(23);
+            var random = new RandomImplementation(23);
             INeatConfiguration configuration = new DefaultNeatConfiguration(500);
             var nodeInovator = new InnovationGenerator(1);
             var ConnectionInovator = new InnovationGenerator(1);
@@ -41,7 +43,7 @@ namespace SoNEATTest
 
         public class WeightOfAHundred : Evaluator
         {
-            public WeightOfAHundred(INeatConfiguration neatConfiguration, IGenesisGenomeProvider genomeProvider, IInnovationPointGenerator nodeInnovationGenerator, IInnovationPointGenerator connectionInnovationGenerator, IMutation addConnectionMutation, IMutation addNodeMutation, IMutation weightMutation, ICrossFunctionStrategy crossFunctionStrategy, Random random) : base(neatConfiguration, genomeProvider, nodeInnovationGenerator, connectionInnovationGenerator, addConnectionMutation, addNodeMutation, weightMutation, crossFunctionStrategy, random)
+            public WeightOfAHundred(INeatConfiguration neatConfiguration, IGenesisGenomeProvider genomeProvider, IInnovationPointGenerator nodeInnovationGenerator, IInnovationPointGenerator connectionInnovationGenerator, IMutation addConnectionMutation, IMutation addNodeMutation, IMutation weightMutation, ICrossFunctionStrategy crossFunctionStrategy, IRandom random) : base(neatConfiguration, genomeProvider, nodeInnovationGenerator, connectionInnovationGenerator, addConnectionMutation, addNodeMutation, weightMutation, crossFunctionStrategy, random)
             {
             }
 
@@ -61,16 +63,16 @@ namespace SoNEATTest
 
         public class GenomeProvider : IGenesisGenomeProvider
         {
-            private readonly Random _random;
+            private readonly IRandom _random;
             private Genome _GenomeGrandfather;
 
-            public GenomeProvider(IInnovationPointGenerator nodeGenerator, IInnovationPointGenerator connectionGenerator, Random random)
+            public GenomeProvider(IInnovationPointGenerator nodeGenerator, IInnovationPointGenerator connectionGenerator, IRandom random)
             {
                 _GenomeGrandfather = GenerateTemplateGenome(nodeGenerator, connectionGenerator);
                 _random = random;
             }
 
-            public GenomeProvider(IInnovationPointGenerator nodeGenerator, IInnovationPointGenerator connectionGenerator, Random random, Genome grandFather)
+            public GenomeProvider(IInnovationPointGenerator nodeGenerator, IInnovationPointGenerator connectionGenerator, IRandom random, Genome grandFather)
             {
                 _GenomeGrandfather = grandFather;
                 _random = random;

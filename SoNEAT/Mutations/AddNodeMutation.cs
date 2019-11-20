@@ -2,6 +2,7 @@
 using SoNEAT.Models;
 using System;
 using System.Linq;
+using SoNEAT.Facades;
 
 namespace SoNEAT.Mutations
 {
@@ -9,16 +10,16 @@ namespace SoNEAT.Mutations
     {
         private readonly IInnovationPointGenerator nodeInnovationGenerator;
         private readonly IInnovationPointGenerator connectionInnovationGenerator;
-        private readonly Random random;
+        private readonly IRandom random;
 
-        public AddNodeMutation(IInnovationPointGenerator nodeInnovationGenerator, IInnovationPointGenerator connectionInnovationGenerator, Random random)
+        public AddNodeMutation(IInnovationPointGenerator nodeInnovationGenerator, IInnovationPointGenerator connectionInnovationGenerator, IRandom random)
         {
             this.nodeInnovationGenerator = nodeInnovationGenerator;
             this.connectionInnovationGenerator = connectionInnovationGenerator;
             this.random = random;
         }
 
-        public void Mutate(Genome genome)
+        public bool Mutate(ref Genome genome)
         {
             var enabledConnections = genome.Connections.Values.Where(o => o.IsEnabled);
 
@@ -32,6 +33,12 @@ namespace SoNEAT.Mutations
                 genome.Connections.Add(outConnection.Id, outConnection);
 
                 connection.IsEnabled = false;
+                
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 

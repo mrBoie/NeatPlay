@@ -3,17 +3,18 @@ using SoNEAT.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using SoNEAT.Facades;
 
 namespace SoNEAT.Mutations
 {
     public class AddConnectionMutation : IMutation
     {
         private readonly IInnovationPointGenerator _connectionInnovationGenerator;
-        private readonly Random _random;
+        private readonly IRandom _random;
         private readonly double _probabilityPerturbing;
         private readonly int _maxAttempts;
 
-        public AddConnectionMutation(IInnovationPointGenerator connectionInnovationGenerator, Random random, double probabilityPerturbing, int maxAttempts)
+        public AddConnectionMutation(IInnovationPointGenerator connectionInnovationGenerator, IRandom random, double probabilityPerturbing, int maxAttempts)
         {
             _connectionInnovationGenerator = connectionInnovationGenerator;
             _random = random;
@@ -21,11 +22,11 @@ namespace SoNEAT.Mutations
             _maxAttempts = maxAttempts;
         }
 
-        public AddConnectionMutation(InnovationGenerator connectionInovator, Random random, INeatConfiguration configuration) :
-            this(connectionInovator, random, configuration.PerturbingRate, configuration.MaxAttemptsAtFindingConnections)
+        public AddConnectionMutation(IInnovationPointGenerator connectionInnovator, IRandom random, INeatConfiguration configuration) :
+            this(connectionInnovator, random, configuration.PerturbingRate, configuration.MaxAttemptsAtFindingConnections)
         { }
 
-        public void Mutate(Genome genome)
+        public bool Mutate(ref Genome genome)
         {
             var tries = 0;
             var success = false;
@@ -61,6 +62,8 @@ namespace SoNEAT.Mutations
 
                 success = true;
             }
+
+            return success;
         }
 
         private static void ReverseNodesIfNeeded(ref Node node1, ref Node node2)

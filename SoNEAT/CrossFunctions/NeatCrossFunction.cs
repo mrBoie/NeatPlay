@@ -2,15 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using SoNEAT.Facades;
 
 namespace SoNEAT.CrossFunctions
 {
     public class NeatCrossFunction : ICrossFunctionStrategy
     {
-        private readonly Random _random;
+        private readonly IRandom _random;
         private readonly double _disabledGeneInheritingChance;
 
-        public NeatCrossFunction(Random random, INeatConfiguration configuration)
+        public NeatCrossFunction(IRandom random, INeatConfiguration configuration)
         {
             _random = random;
             _disabledGeneInheritingChance = configuration.DisabledGeneInheritingChance;
@@ -27,7 +28,7 @@ namespace SoNEAT.CrossFunctions
             return newGenome;
         }
 
-        private static Dictionary<int, Connection> GenerateBabyConnections(Genome moreFitParent, Genome lessFitParent, Random random, double disabledGeneInheritingChance)
+        private static Dictionary<int, Connection> GenerateBabyConnections(Genome moreFitParent, Genome lessFitParent, IRandom random, double disabledGeneInheritingChance)
         {
             var childConnections = new Dictionary<int, Connection>();
 

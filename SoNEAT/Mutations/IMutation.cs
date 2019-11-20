@@ -2,6 +2,6 @@
 {
     public interface IMutation
     {
-        void Mutate(Genome genome);
+        bool Mutate(ref Genome genome);
     }
 }

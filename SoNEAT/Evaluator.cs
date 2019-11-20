@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SoNEAT.Facades;
 
 namespace SoNEAT
 {
@@ -18,13 +19,13 @@ namespace SoNEAT
         private readonly IMutation _addNodeMutation;
         private readonly IMutation _weightMutation;
         private readonly ICrossFunctionStrategy _crossFunctionStrategy;
-        private readonly Random _random;
+        private readonly IRandom _random;
         private List<Genome> _genomes;
         private List<FitnessGenome> _evaluatedGenomes;
         private List<Genome> _nextGeneration;
         private List<FitnessGenome> _lastGenerationResults;
 
-        public Evaluator(INeatConfiguration neatConfiguration, IGenesisGenomeProvider genomeProvider, IInnovationPointGenerator nodeInnovationGenerator, IInnovationPointGenerator connectionInnovationGenerator, IMutation addConnectionMutation, IMutation addNodeMutation, IMutation weightMutation, ICrossFunctionStrategy crossFunctionStrategy, Random random)
+        public Evaluator(INeatConfiguration neatConfiguration, IGenesisGenomeProvider genomeProvider, IInnovationPointGenerator nodeInnovationGenerator, IInnovationPointGenerator connectionInnovationGenerator, IMutation addConnectionMutation, IMutation addNodeMutation, IMutation weightMutation, ICrossFunctionStrategy crossFunctionStrategy, IRandom random)
         {
             _neatConfiguration = neatConfiguration;
             _nodeInnovationGenerator = nodeInnovationGenerator;
@@ -96,17 +97,17 @@ namespace SoNEAT
 
                     if(_random.NextDouble() < _neatConfiguration.MutationRate)
                     {
-                        _weightMutation.Mutate(child);
+                        _weightMutation.Mutate(ref child);
                     }
 
                     if(_random.NextDouble() < _neatConfiguration.AddConnectionRate)
                     {
-                        _addConnectionMutation.Mutate(child);
+                        _addConnectionMutation.Mutate(ref child);
                     }
 
                     if(_random.NextDouble() < _neatConfiguration.AddNodeRate)
                     {
-                        _addNodeMutation.Mutate(child);
+                        _addNodeMutation.Mutate(ref child);
                     }
                     _nextGeneration.Add(child);
                 }
@@ -114,7 +115,7 @@ namespace SoNEAT
                 {
                     var parent = _evaluatedGenomes[_random.Next(_evaluatedGenomes.Count)];
                     var child = parent.Genome.Copy();
-                    _weightMutation.Mutate(child);
+                    _weightMutation.Mutate(ref child);
                     _nextGeneration.Add(child);
                 }
             }

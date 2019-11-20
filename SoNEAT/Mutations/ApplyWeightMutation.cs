@@ -1,25 +1,26 @@
 ﻿using System;
+using SoNEAT.Facades;
 
 namespace SoNEAT.Mutations
 {
     public class ApplyWeightMutation : IMutation
     {
-        private readonly Random _random;
+        private readonly IRandom _random;
         private readonly double _probabilityPerturbing;
 
-        public ApplyWeightMutation(Random random, double probabilityPerturbing)
+        public ApplyWeightMutation(IRandom random, double probabilityPerturbing)
         {
             _random = random;
             _probabilityPerturbing = probabilityPerturbing;
         }
 
-        public ApplyWeightMutation(Random random, INeatConfiguration configuration)
+        public ApplyWeightMutation(IRandom random, INeatConfiguration configuration)
         {
             _random = random;
             _probabilityPerturbing = configuration.PerturbingRate;
         }
 
-        public void Mutate(Genome genome)
+        public bool Mutate(ref Genome genome)
         {
             foreach (var connection in genome.Connections.Values)
             {
@@ -38,6 +39,7 @@ namespace SoNEAT.Mutations
                     connection.Weight = weight;
                 }
             }
+            return true;
         }
     }
 }
