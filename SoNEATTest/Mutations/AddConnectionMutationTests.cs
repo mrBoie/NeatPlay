@@ -1,15 +1,13 @@
-﻿using NUnit.Framework;
+﻿using System.Collections.Generic;
+using System.Linq;
+using NSubstitute;
+using NUnit.Framework;
 using SoNEAT;
+using SoNEAT.Facades;
 using SoNEAT.InnovationPointGenerator;
 using SoNEAT.Mutations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using NSubstitute;
-using SoNEAT.Facades;
 
-namespace SoNEATTest
+namespace SoNEATTest.Mutations
 {
     [TestFixture]
     public class AddConnectionMutationTests
